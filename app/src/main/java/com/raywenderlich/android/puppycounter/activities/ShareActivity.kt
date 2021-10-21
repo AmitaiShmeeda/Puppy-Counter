@@ -76,6 +76,10 @@ class ShareActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.layout_share)
     findViews()
+
+    // Read extra data from the Intent
+    readExtras()
+
     setOnShareBtnClickListener()
   }
 
@@ -116,6 +120,11 @@ class ShareActivity : AppCompatActivity() {
     smallDogStatsLabel.text = getString(R.string.small_dog_stats, smallDogCount.toString())
     middleDogStatsLabel.text = getString(R.string.middle_dog_stats, middleDogCount.toString())
     bigDogStatsLabel.text = getString(R.string.big_dog_stats, bigDogCount.toString())
+  }
+
+  private fun readExtras() = intent.extras?.run {
+    Timber.i("PuppyCounter - ShareActivity - readExtras()")
+    dogCount = getParcelable(EXTRA_DOG_COUNT) ?: DogCount()
   }
 
   private fun openShareDialog() {
