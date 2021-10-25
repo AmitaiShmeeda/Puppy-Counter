@@ -2,6 +2,9 @@ package com.raywenderlich.android.puppycounter.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+// יורש Parcelize כדי לאפשר שמירה בין מצבי מערכת-
+// זה בעצם מאפשר קריאה מהפונקציה  onSaveInstanceState()
+// Parcelize  it allows you to store simple data structures in Bundle.
 
 /*
  * Copyright (c) 2021 Razeware LLC
